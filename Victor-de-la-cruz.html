@@ -1,113 +1,114 @@
 <!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ocor Inc - Ticket</title>
-<link rel="shortcut icon" href="img/svg-logo-w.svg">
-<link rel="icon" href="img/svg-logo-w.svg">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
-<style type="text/css" media="screen">
-    .hide {
-        display: none;
-    }
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ocor Inc - Ticket</title>
+    <link rel="shortcut icon" href="img/svg-logo-w.svg">
+    <link rel="icon" href="img/svg-logo-w.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <style type="text/css" media="screen">
+        .hide {
+            display: none;
+        }
 
-    .text {
-        font-family: 'Montserrat', sans-serif;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        color: rgba(0, 0, 0, 0.87);
-    }
+        .text {
+            font-family: 'Montserrat', sans-serif;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: rgba(0, 0, 0, 0.87);
+        }
 
-    .ticket-container {
-        width: 320px;
-        padding: 9px;
-        margin: auto;
-    }
+        .ticket-container {
+            width: 320px;
+            padding: 9px;
+            margin: auto;
+        }
 
-    .ticket-region {
-        background-color: white;
-        border-radius: 10px;
-    }
+        .ticket-region {
+            background-color: white;
+            border-radius: 10px;
+        }
 
-    .qrcode-region {
-        padding: 18px 40px;
-        text-align: center;
-        border-bottom: dashed 3px #d6cdcd;
-    }
+        .qrcode-region {
+            padding: 18px 40px;
+            text-align: center;
+            border-bottom: dashed 3px #d6cdcd;
+        }
 
-    .qrcode-heading {
-        font-size: 20px;
-        font-weight: bold;
-    }
+        .qrcode-heading {
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-    .qrcode-canvas {
-        padding: 15px 0;
-    }
+        .qrcode-canvas {
+            padding: 15px 0;
+        }
 
-    .qrcode-ticketId {
-        font-size: 16px;
-        opacity: 0.87;
-    }
+        .qrcode-ticketId {
+            font-size: 16px;
+            opacity: 0.87;
+        }
 
-    .event-and-ticket-details-region {
-        text-align: left;
-        padding: 20px 24px;
-    }
+        .event-and-ticket-details-region {
+            text-align: left;
+            padding: 20px 24px;
+        }
 
-    .event-and-ticket-details-region .heading {
-        font-weight: bold;
-    }
+        .event-and-ticket-details-region .heading {
+            font-weight: bold;
+        }
 
-    .event-and-ticket-details-region .text {
-        font-size: 13px !important;
-    }
+        .event-and-ticket-details-region .text {
+            font-size: 13px !important;
+        }
 
-    .vif-region {
-    	padding-bottom: 20px;
-    }
+        .vif-region {
+        	padding-bottom: 20px;
+        }
 
-    .event-details-region .block {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        box-shadow: 0 0.25px 0 0 rgba(0, 0, 0, 0.5);
-    }
+        .event-details-region .block {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-shadow: 0 0.25px 0 0 rgba(0, 0, 0, 0.5);
+        }
 
-    .event-details-region .block:first-child{
-    	padding-top: 0;
-    }
+        .event-details-region .block:first-child{
+        	padding-top: 0;
+        }
 
-    .event-details-region .block:last-child {
-        box-shadow: none;
-    }
+        .event-details-region .block:last-child {
+            box-shadow: none;
+        }
 
-    .download-ticket-region {
-        text-align: center;
-    }
+        .download-ticket-region {
+            text-align: center;
+        }
 
-    #download-ticket-btn {
-            width: 100%;
-                padding: 10px;
-                font-family: 'Montserrat';
-                font-weight: 800;
-                font-size: 15px;
-                background-color: #003fdb;
-                color: white;
-                border: 0;
-                border-radius: 5px;
-                cursor: pointer;
-                box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
-    }
-    </style>
+        #download-ticket-btn {
+                width: 100%;
+                    padding: 10px;
+                    font-family: 'Montserrat';
+                    font-weight: 800;
+                    font-size: 15px;
+                    background-color: #003fdb;
+                    color: white;
+                    border: 0;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
+        }
+        </style>
 
-<script src="./Ticket_files/konva.min.js.descarga" type="text/javascript" charset="utf-8"></script>
-<script src="./Ticket_files/qrcode.min.js.descarga" type="text/javascript" charset="utf-8">
-    </script>
+    <script src="./Ticket_files/konva.min.js.descarga" type="text/javascript" charset="utf-8"></script>
+    <script src="./Ticket_files/qrcode.min.js.descarga" type="text/javascript" charset="utf-8">
+        </script>
 
-<script src="./Ticket_files/change_dpi_url.min.js.descarga" type="text/javascript" charset="utf-8" async="">
-    </script>
+    <script src="./Ticket_files/change_dpi_url.min.js.descarga" type="text/javascript" charset="utf-8" async="">
+        </script>
 </head>
 <body style="background-color: black;">
 <div class="ticket-container">
@@ -121,7 +122,7 @@ Ticket
 </div>
                                                     <div class="text qrcode-ticketId">
                                                     ID:
-                                                    +584128903325
+                                                    +584127739564
                                                     </div>
 </div>
 <div class="event-and-ticket-details-region">
@@ -132,7 +133,7 @@ Ticket
 NOMBRE:
 </span>
                                                     <span class="text">
-                                                    Daniel Farias
+                                                    Victor de la cruz
                                                     </span>
 </div>
 <div>
@@ -164,7 +165,7 @@ Hora:
 Referido:
 </span>
                                                     <span class="text">
-                                                    Wilmar Castillo
+                                                    Victor corio
                                                     </span>
 </div>
 </div>
@@ -197,7 +198,7 @@ Cada entrada viene con una bebida 🥃 valido por escaneo para reclamar en Barra
 </div>
 <div class="hide">
 <span id="ticket-design-data">
-"{\"attrs\":{\"width\":834,\"height\":303},\"className\":\"Stage\",\"children\":[{\"attrs\":{},\"className\":\"Layer\",\"children\":[{\"attrs\":{\"x\":0,\"y\":0,\"width\":834,\"height\":303,\"id\":\"backgroundImage\",\"fill\":\"#e8e8e8\",\"strokeWidth\":0,\"name\":\"ignoredCategory\",\"fillPatternRepeat\":\"no-repeat\",\"dash\":[],\"ignoreProps\":{\"stroke\":null,\"strokeWidth\":0,\"dash\":[]}},\"className\":\"Rect\"},{\"attrs\":{\"y\":40,\"name\":\"ticketDetailsAndQRCodeRegionGroup\",\"id\":\"ticketDetailsAndQRCodeRegionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"x\":40,\"name\":\"ticketDetailsRegionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"id\":\"ticketDetailsRect\",\"width\":571.2,\"height\":228,\"fill\":\"white\",\"stroke\":\"white\",\"strokeWidth\":1,\"name\":\"ticketDetailsRect\",\"cornerRadius\":10},\"className\":\"Rect\"},{\"attrs\":{\"id\":\"logoImageGroup\",\"x\":20,\"y\":16},\"className\":\"Group\",\"children\":[{\"attrs\":{\"width\":120,\"height\":45,\"name\":\"uploadImage\",\"id\":\"logoImage\",\"fillPatternRepeat\":\"no-repeat\"},\"className\":\"Rect\"}]},{\"attrs\":{\"id\":\"eventNameGroup\",\"x\":20,\"y\":67,\"name\":\"eventNameGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"Party 2910\",\"name\":\"eventNameText\",\"id\":\"eventNameText\",\"fontSize\":20,\"align\":\"center\",\"letterSpacing\":0.13,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"descriptionGroup\",\"x\":20,\"y\":92,\"name\":\"descriptionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"#c8c8c8\",\"text\":\"Cada entrada viene con una bebida valido por escaneo reclamar en Barra\",\"name\":\"descriptionText\",\"id\":\"descriptionText\",\"align\":\"center\",\"letterSpacing\":0.08,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"dateTimeRangeGroup\",\"x\":20,\"y\":114,\"name\":\"dateTimeRangeGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"30 Oct, 2021 09:00 PM\",\"name\":\"dateTimeRangeText\",\"id\":\"dateTimeRange1Text\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"},{\"attrs\":{\"id\":\"dateTimeRangeSeparatorLine\",\"points\":[197.3484375,0,197.3484375,2,197.3484375,17],\"stroke\":\"#979797\",\"strokeWidth\":1,\"lineCap\":\"round\",\"name\":\"dateTimeGroupsSeparatorLine\"},\"className\":\"Line\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"31 Oct, 2021 02:00 PM\",\"name\":\"dateTimeRangeText\",\"id\":\"dateTimeRange2Text\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"x\":214.3484375,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"\",\"name\":\"timezoneCodeText\",\"id\":\"timezoneCodeText\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"x\":410,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"venueGroup\",\"x\":20,\"y\":140,\"name\":\"venueGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"El castaño\",\"name\":\"venueText\",\"id\":\"venueText\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"vifParentGroup\",\"x\":15,\"y\":165,\"name\":\"vifParentGroup\"},\"className\":\"Group\",\"children\":[]},{\"attrs\":{\"x\":20,\"y\":213,\"name\":\"noteGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"#c8c8c8\",\"text\":\"Fiesta de cumpleaños de victor corio\",\"name\":\"noteText\",\"id\":\"noteText\",\"fontSize\":10,\"align\":\"center\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]}]},{\"attrs\":{\"x\":631.2,\"name\":\"ticketQRCodeGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"id\":\"ticketQRCodeRect\",\"width\":164.22,\"height\":228,\"fill\":\"white\",\"stroke\":\"white\",\"strokeWidth\":1,\"name\":\"ticketQRCodeRect\",\"cornerRadius\":10},\"className\":\"Rect\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"1 Trago Gratis\",\"name\":\"admitOneText\",\"width\":164.22,\"y\":12,\"align\":\"center\",\"id\":\"admitOneText\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"Ticket Code\",\"name\":\"ticketCodeHeaderText\",\"width\":164.22,\"y\":190,\"fontSize\":10,\"align\":\"center\",\"id\":\"ticketCodeHeaderText\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"id\":\"qrcodeImage\",\"x\":22.11,\"y\":45},\"className\":\"Image\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"+584128903325\",\"name\":\"ticketCodeValueText\",\"width\":164.22,\"y\":206,\"fontSize\":14,\"align\":\"center\",\"id\":\"ticketCodeValueText\",\"letterSpacing\":0.09,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]}]}]}]}"
+"{\"attrs\":{\"width\":834,\"height\":303},\"className\":\"Stage\",\"children\":[{\"attrs\":{},\"className\":\"Layer\",\"children\":[{\"attrs\":{\"x\":0,\"y\":0,\"width\":834,\"height\":303,\"id\":\"backgroundImage\",\"fill\":\"#e8e8e8\",\"strokeWidth\":0,\"name\":\"ignoredCategory\",\"fillPatternRepeat\":\"no-repeat\",\"dash\":[],\"ignoreProps\":{\"stroke\":null,\"strokeWidth\":0,\"dash\":[]}},\"className\":\"Rect\"},{\"attrs\":{\"y\":40,\"name\":\"ticketDetailsAndQRCodeRegionGroup\",\"id\":\"ticketDetailsAndQRCodeRegionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"x\":40,\"name\":\"ticketDetailsRegionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"id\":\"ticketDetailsRect\",\"width\":571.2,\"height\":228,\"fill\":\"white\",\"stroke\":\"white\",\"strokeWidth\":1,\"name\":\"ticketDetailsRect\",\"cornerRadius\":10},\"className\":\"Rect\"},{\"attrs\":{\"id\":\"logoImageGroup\",\"x\":20,\"y\":16},\"className\":\"Group\",\"children\":[{\"attrs\":{\"width\":120,\"height\":45,\"name\":\"uploadImage\",\"id\":\"logoImage\",\"fillPatternRepeat\":\"no-repeat\"},\"className\":\"Rect\"}]},{\"attrs\":{\"id\":\"eventNameGroup\",\"x\":20,\"y\":67,\"name\":\"eventNameGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"Party 2910\",\"name\":\"eventNameText\",\"id\":\"eventNameText\",\"fontSize\":20,\"align\":\"center\",\"letterSpacing\":0.13,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"descriptionGroup\",\"x\":20,\"y\":92,\"name\":\"descriptionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"#c8c8c8\",\"text\":\"Cada entrada viene con una bebida valido por escaneo reclamar en Barra\",\"name\":\"descriptionText\",\"id\":\"descriptionText\",\"align\":\"center\",\"letterSpacing\":0.08,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"dateTimeRangeGroup\",\"x\":20,\"y\":114,\"name\":\"dateTimeRangeGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"30 Oct, 2021 09:00 PM\",\"name\":\"dateTimeRangeText\",\"id\":\"dateTimeRange1Text\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"},{\"attrs\":{\"id\":\"dateTimeRangeSeparatorLine\",\"points\":[197.3484375,0,197.3484375,2,197.3484375,17],\"stroke\":\"#979797\",\"strokeWidth\":1,\"lineCap\":\"round\",\"name\":\"dateTimeGroupsSeparatorLine\"},\"className\":\"Line\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"31 Oct, 2021 02:00 PM\",\"name\":\"dateTimeRangeText\",\"id\":\"dateTimeRange2Text\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"x\":214.3484375,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"\",\"name\":\"timezoneCodeText\",\"id\":\"timezoneCodeText\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"x\":410,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"venueGroup\",\"x\":20,\"y\":140,\"name\":\"venueGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"El castaño\",\"name\":\"venueText\",\"id\":\"venueText\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"vifParentGroup\",\"x\":15,\"y\":165,\"name\":\"vifParentGroup\"},\"className\":\"Group\",\"children\":[]},{\"attrs\":{\"x\":20,\"y\":213,\"name\":\"noteGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"#c8c8c8\",\"text\":\"Fiesta de cumpleaños de victor corio\",\"name\":\"noteText\",\"id\":\"noteText\",\"fontSize\":10,\"align\":\"center\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]}]},{\"attrs\":{\"x\":631.2,\"name\":\"ticketQRCodeGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"id\":\"ticketQRCodeRect\",\"width\":164.22,\"height\":228,\"fill\":\"white\",\"stroke\":\"white\",\"strokeWidth\":1,\"name\":\"ticketQRCodeRect\",\"cornerRadius\":10},\"className\":\"Rect\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"1 Trago Gratis\",\"name\":\"admitOneText\",\"width\":164.22,\"y\":12,\"align\":\"center\",\"id\":\"admitOneText\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"Ticket Code\",\"name\":\"ticketCodeHeaderText\",\"width\":164.22,\"y\":190,\"fontSize\":10,\"align\":\"center\",\"id\":\"ticketCodeHeaderText\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"id\":\"qrcodeImage\",\"x\":22.11,\"y\":45},\"className\":\"Image\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"+584127739564\",\"name\":\"ticketCodeValueText\",\"width\":164.22,\"y\":206,\"fontSize\":14,\"align\":\"center\",\"id\":\"ticketCodeValueText\",\"letterSpacing\":0.09,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]}]}]}]}"
 </span>
 <span id="ticket-design-other-props">
 {"fillBackground":true,"scaleTicket":true,"ticketComponentProps":{"ticketSize":[2200,850],"qrcodeOptions":{"type":"svg","margin":0,"width":120,"scale":1,"errorCorrectionLevel":"H"}}}
@@ -226,7 +227,7 @@ Cada entrada viene con una bebida 🥃 valido por escaneo para reclamar en Barra
         setTimeout(() => {
 
             // render QRCode inside HTML
-            QRCode.toCanvas(document.getElementById('qrcode-canvas'), "1 Trago Gratis - Daniel Farias", {
+            QRCode.toCanvas(document.getElementById('qrcode-canvas'), "1 Trago Gratis - Victor de la cruz", {
                 type: "svg",
                 margin: 0,
                 width: 175,
@@ -362,7 +363,7 @@ Cada entrada viene con una bebida 🥃 valido por escaneo para reclamar en Barra
 
             // set the QRCODE
             QRCode.toCanvas(document.createElement('canvas'),
-                "1 Trago Gratis - Daniel Farias", ticketDesignOtherProps.ticketComponentProps.qrcodeOptions)
+                "1 Trago Gratis - Victor de la cruz", ticketDesignOtherProps.ticketComponentProps.qrcodeOptions)
             .then((qrcodeCanvas) => {
                 ticketStage.find('#' + "qrcodeImage")[0].image(qrcodeCanvas);
                 document.getElementById("download-ticket-btn").disabled = false;
