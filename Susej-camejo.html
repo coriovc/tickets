@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ocor Inc - Ticket</title>
+    <link rel="shortcut icon" href="img/svg-logo-w.svg">
+    <link rel="icon" href="img/svg-logo-w.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <style type="text/css" media="screen">
+        .hide {
+            display: none;
+        }
+
+        .text {
+            font-family: 'Montserrat', sans-serif;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .ticket-container {
+            width: 320px;
+            padding: 9px;
+            margin: auto;
+        }
+
+        .ticket-region {
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .qrcode-region {
+            padding: 18px 40px;
+            text-align: center;
+            border-bottom: dashed 3px #d6cdcd;
+        }
+
+        .qrcode-heading {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .qrcode-canvas {
+            padding: 15px 0;
+        }
+
+        .qrcode-ticketId {
+            font-size: 16px;
+            opacity: 0.87;
+        }
+
+        .event-and-ticket-details-region {
+            text-align: left;
+            padding: 20px 24px;
+        }
+
+        .event-and-ticket-details-region .heading {
+            font-weight: bold;
+        }
+
+        .event-and-ticket-details-region .text {
+            font-size: 13px !important;
+        }
+
+        .vif-region {
+        	padding-bottom: 20px;
+        }
+
+        .event-details-region .block {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-shadow: 0 0.25px 0 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .event-details-region .block:first-child{
+        	padding-top: 0;
+        }
+
+        .event-details-region .block:last-child {
+            box-shadow: none;
+        }
+
+        .download-ticket-region {
+            text-align: center;
+        }
+
+        #download-ticket-btn {
+                width: 100%;
+                    padding: 10px;
+                    font-family: 'Montserrat';
+                    font-weight: 800;
+                    font-size: 15px;
+                    background-color: #003fdb;
+                    color: white;
+                    border: 0;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    box-shadow: 0 1rem 3rem rgb(0 0 0 / 18%);
+        }
+        </style>
+
+    <script src="./Ticket_files/konva.min.js.descarga" type="text/javascript" charset="utf-8"></script>
+    <script src="./Ticket_files/qrcode.min.js.descarga" type="text/javascript" charset="utf-8">
+        </script>
+
+    <script src="./Ticket_files/change_dpi_url.min.js.descarga" type="text/javascript" charset="utf-8" async="">
+        </script>
+</head>
+<body style="background-color: black;">
+<div class="ticket-container">
+<div class="ticket-region">
+<div class="qrcode-region">
+<div class="text qrcode-heading">
+Ticket
+</div>
+<div class="qrcode-canvas">
+<canvas id="qrcode-canvas" height="175" width="175" style="height: 175px; width: 175px;"></canvas>
+</div>
+                                                    <div class="text qrcode-ticketId">
+                                                    ID:
+                                                    +584169407996
+                                                    </div>
+</div>
+<div class="event-and-ticket-details-region">
+<div class="event-details-region">
+<div class="block">
+<div>
+<span class="heading text">
+NOMBRE:
+</span>
+                                                    <span class="text">
+                                                    Susej camejo
+                                                    </span>
+</div>
+<div>
+<span class="heading text">
+Evento:
+</span>
+<span class="text">
+Party 2910
+</span>
+</div>
+<div>
+<span class="heading text">
+Fecha:
+</span>
+<span class="text">
+30 Oct, 2021 - 31 Oct, 2021
+</span>
+</div>
+<div>
+<span class="heading text">
+Hora:
+</span>
+<span class="text">
+09:00 PM - 02:00 PM
+</span>
+</div>
+<div>
+<span class="heading text">
+Referido:
+</span>
+                                                    <span class="text">
+                                                    thomas moreno
+                                                    </span>
+</div>
+</div>
+<div class="block">
+<div>
+<span class="heading text">
+Sitio o lugar:
+</span>
+<span class="text">
+El castaño (Pedir ubicacion de maps ✔ o buscar <strong>Ocor inc</strong> en maps)
+</span>
+</div>
+</div>
+<div class="block">
+<div>
+<span class="heading text">
+Nota:
+</span>
+<span class="text">
+Cada entrada viene con una bebida 🥃 valido por escaneo para reclamar en Barra
+</span>
+</div>
+</div>
+</div>
+<div class="download-ticket-region">
+<button type="button" id="download-ticket-btn" onclick="downloadTicket()">GUARDAR TICKET</button>
+</div>
+</div>
+</div>
+</div>
+<div class="hide">
+<span id="ticket-design-data">
+"{\"attrs\":{\"width\":834,\"height\":303},\"className\":\"Stage\",\"children\":[{\"attrs\":{},\"className\":\"Layer\",\"children\":[{\"attrs\":{\"x\":0,\"y\":0,\"width\":834,\"height\":303,\"id\":\"backgroundImage\",\"fill\":\"#e8e8e8\",\"strokeWidth\":0,\"name\":\"ignoredCategory\",\"fillPatternRepeat\":\"no-repeat\",\"dash\":[],\"ignoreProps\":{\"stroke\":null,\"strokeWidth\":0,\"dash\":[]}},\"className\":\"Rect\"},{\"attrs\":{\"y\":40,\"name\":\"ticketDetailsAndQRCodeRegionGroup\",\"id\":\"ticketDetailsAndQRCodeRegionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"x\":40,\"name\":\"ticketDetailsRegionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"id\":\"ticketDetailsRect\",\"width\":571.2,\"height\":228,\"fill\":\"white\",\"stroke\":\"white\",\"strokeWidth\":1,\"name\":\"ticketDetailsRect\",\"cornerRadius\":10},\"className\":\"Rect\"},{\"attrs\":{\"id\":\"logoImageGroup\",\"x\":20,\"y\":16},\"className\":\"Group\",\"children\":[{\"attrs\":{\"width\":120,\"height\":45,\"name\":\"uploadImage\",\"id\":\"logoImage\",\"fillPatternRepeat\":\"no-repeat\"},\"className\":\"Rect\"}]},{\"attrs\":{\"id\":\"eventNameGroup\",\"x\":20,\"y\":67,\"name\":\"eventNameGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"Party 2910\",\"name\":\"eventNameText\",\"id\":\"eventNameText\",\"fontSize\":20,\"align\":\"center\",\"letterSpacing\":0.13,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"descriptionGroup\",\"x\":20,\"y\":92,\"name\":\"descriptionGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"#c8c8c8\",\"text\":\"Cada entrada viene con una bebida valido por escaneo reclamar en Barra\",\"name\":\"descriptionText\",\"id\":\"descriptionText\",\"align\":\"center\",\"letterSpacing\":0.08,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"dateTimeRangeGroup\",\"x\":20,\"y\":114,\"name\":\"dateTimeRangeGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"30 Oct, 2021 09:00 PM\",\"name\":\"dateTimeRangeText\",\"id\":\"dateTimeRange1Text\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"fontStyle\":\"normal\",\"fontFamily\":\"Roboto\"},\"className\":\"Text\"},{\"attrs\":{\"id\":\"dateTimeRangeSeparatorLine\",\"points\":[197.3484375,0,197.3484375,2,197.3484375,17],\"stroke\":\"#979797\",\"strokeWidth\":1,\"lineCap\":\"round\",\"name\":\"dateTimeGroupsSeparatorLine\"},\"className\":\"Line\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"31 Oct, 2021 02:00 PM\",\"name\":\"dateTimeRangeText\",\"id\":\"dateTimeRange2Text\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"x\":214.3484375,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"\",\"name\":\"timezoneCodeText\",\"id\":\"timezoneCodeText\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"x\":410,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"venueGroup\",\"x\":20,\"y\":140,\"name\":\"venueGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"black\",\"text\":\"El castaño\",\"name\":\"venueText\",\"id\":\"venueText\",\"fontSize\":16,\"align\":\"center\",\"letterSpacing\":0.1,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]},{\"attrs\":{\"id\":\"vifParentGroup\",\"x\":15,\"y\":165,\"name\":\"vifParentGroup\"},\"className\":\"Group\",\"children\":[]},{\"attrs\":{\"x\":20,\"y\":213,\"name\":\"noteGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"fill\":\"#c8c8c8\",\"text\":\"Fiesta de cumpleaños de victor corio\",\"name\":\"noteText\",\"id\":\"noteText\",\"fontSize\":10,\"align\":\"center\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]}]},{\"attrs\":{\"x\":631.2,\"name\":\"ticketQRCodeGroup\"},\"className\":\"Group\",\"children\":[{\"attrs\":{\"id\":\"ticketQRCodeRect\",\"width\":164.22,\"height\":228,\"fill\":\"white\",\"stroke\":\"white\",\"strokeWidth\":1,\"name\":\"ticketQRCodeRect\",\"cornerRadius\":10},\"className\":\"Rect\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"1 Trago Gratis\",\"name\":\"admitOneText\",\"width\":164.22,\"y\":12,\"align\":\"center\",\"id\":\"admitOneText\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"Ticket Code\",\"name\":\"ticketCodeHeaderText\",\"width\":164.22,\"y\":190,\"fontSize\":10,\"align\":\"center\",\"id\":\"ticketCodeHeaderText\",\"letterSpacing\":0.01,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"},{\"attrs\":{\"id\":\"qrcodeImage\",\"x\":22.11,\"y\":45},\"className\":\"Image\"},{\"attrs\":{\"fill\":\"black\",\"text\":\"+584169407996\",\"name\":\"ticketCodeValueText\",\"width\":164.22,\"y\":206,\"fontSize\":14,\"align\":\"center\",\"id\":\"ticketCodeValueText\",\"letterSpacing\":0.09,\"fontFamily\":\"Roboto\",\"fontStyle\":\"normal\"},\"className\":\"Text\"}]}]}]}]}"
+</span>
+<span id="ticket-design-other-props">
+{"fillBackground":true,"scaleTicket":true,"ticketComponentProps":{"ticketSize":[2200,850],"qrcodeOptions":{"type":"svg","margin":0,"width":120,"scale":1,"errorCorrectionLevel":"H"}}}
+</span>
+<div id="ticket-canvas-container" style="display: none;"><div class="konvajs-content" role="presentation" style="position: relative; user-select: none; width: 2200px; height: 850px;"><canvas width="1979" height="764" style="padding: 0px; margin: 0px; border: 0px; background: transparent; position: absolute; top: 0px; left: 0px; width: 2200px; height: 850px; display: block;"></canvas></div></div>
+<input type="text" value="https://s3.us-east-1.amazonaws.com/tg-bin/8fbed8ae-6933-4630-86d0-f0b6729deade/tickets-logos/ecc8d319129eeb60d261927e8a1fce72.png" id="logo-url">
+<input type="text" data-is-color="true" value="#000000" id="background-prop">
+</div>
+<script type="text/javascript">
+    (function() {
+
+        // function from https://stackoverflow.com/a/15832662/512042
+        function downloadURI(uri, name) {
+            var link = document.createElement('a');
+            link.download = name;
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            delete link;
+        };
+
+
+        // Because we have loaded the used JS (konvs, qrcode etc) files asynchronously, we have "setTimeout" here so that
+        // the functionalities depending upon those libraries get executed without any "Not found" error
+        setTimeout(() => {
+
+            // render QRCode inside HTML
+            QRCode.toCanvas(document.getElementById('qrcode-canvas'), "1 Trago Gratis - Susej camejo", {
+                type: "svg",
+                margin: 0,
+                width: 175,
+                scale: 1,
+                errorCorrectionLevel: 'H'
+            }, function(error) {
+                if (error) console.error(error)
+            });
+
+
+            let ticketDesignOtherProps = JSON.parse(document.getElementById('ticket-design-other-props').textContent);
+
+            // console.log(ticketDesignOtherProps, "ticketDesignOtherProps");
+
+            // build ticket according to the design and make it available for download
+            const ticketStage = Konva.Node.create(JSON.parse(document.getElementById('ticket-design-data').textContent), 'ticket-canvas-container');
+
+            const ticketStageDims = {
+                width: ticketStage.width(),
+                height: ticketStage.height(),
+            };
+
+
+            if (ticketDesignOtherProps.scaleTicket) {
+
+                // ticketDesignOtherProps.ticketComponentProps.ticketSize[0]:ticketDesignOtherProps.ticketComponentProps.ticketSize[1]
+                // aspect ratio for 300 dpi
+                const scale = {
+                    x: (ticketDesignOtherProps.ticketComponentProps.ticketSize[0] / ticketStageDims.width),
+                    y: (ticketDesignOtherProps.ticketComponentProps.ticketSize[1] / ticketStageDims.height),
+                };
+
+                ticketStage.setAttrs({
+                    width: ticketStageDims.width * scale.x,
+                    height: ticketStageDims.height * scale.y,
+                    scale,
+                });
+
+            }
+
+
+            const logoUrl = (document.getElementById("logo-url") && document.getElementById("logo-url").value),
+                backgroundProp = (document.getElementById("background-prop") && document.getElementById("background-prop").value),
+                isBackgroundColor = (document.getElementById("background-prop") && JSON.parse(document.getElementById("background-prop").getAttribute("data-is-color")));
+
+            // console.log(logoUrl, backgroundProp, isBackgroundColor, "***");
+
+
+            let pixelRatio = 1;
+
+            // Set logo Image
+            if (logoUrl) {
+
+                const logoImageRectNode = ticketStage.find('#' + "logoImage")[0];
+
+                const logoImage = new Image();
+
+                // make sure to set the "crossOrigin" to "anonymous"
+                // otherwise this error - https://github.com/konvajs/konva/issues/134 will occur
+                logoImage.setAttribute('crossOrigin', 'anonymous');
+
+                logoImage.onload = function() {
+
+                    logoImageRectNode.fill(null);
+                    logoImageRectNode.fillPatternImage(logoImage);
+
+                    const minRatio = Math.min((logoImageRectNode.width() / logoImage.width),
+                        (logoImageRectNode.height() / logoImage.height));
+
+                    logoImageRectNode.fillPatternScale({
+                        x: minRatio,
+                        y: minRatio
+                    });
+
+                    logoImageRectNode.size({
+                        width: logoImage.width * minRatio,
+                        height: logoImage.height * minRatio
+                    });
+
+                    document.getElementById("download-ticket-btn").disabled = false;
+
+                };
+
+                logoImage.src = logoUrl;
+            }
+
+
+            // Set background image/color
+            if (backgroundProp) {
+
+                const backgroundNode = ticketStage.find('#' + "backgroundImage")[0];
+
+                if (isBackgroundColor) {
+
+                    backgroundNode.fill(backgroundProp);
+
+                } else {
+
+                    const backgroundImage = new Image();
+
+                    // make sure to set the "crossOrigin" to "anonymous"
+                    // otherwise this error - https://github.com/konvajs/konva/issues/134 will occur
+                    backgroundImage.setAttribute('crossOrigin', 'anonymous');
+
+                    backgroundImage.onload = function() {
+
+                        if (ticketDesignOtherProps.fillBackground) {
+
+                            backgroundNode.fill(null);
+                            backgroundNode.fillPatternImage(backgroundImage);
+                            backgroundNode.fillPatternScaleX(backgroundNode.width() / backgroundImage.width);
+
+                        } else {
+
+                            backgroundNode.image(backgroundImage);
+
+                            // taking average
+                            pixelRatio = ((backgroundImage.width / ticketStageDims.width) + (backgroundImage.height / ticketStageDims.height)) / 2;
+
+                            backgroundNode.draw();
+                        }
+
+                        document.getElementById("download-ticket-btn").disabled = false;
+
+                    };
+
+                    backgroundImage.src = backgroundProp;
+
+                }
+
+            }
+
+
+            // set the QRCODE
+            QRCode.toCanvas(document.createElement('canvas'),
+                "1 Trago Gratis - Susej camejo", ticketDesignOtherProps.ticketComponentProps.qrcodeOptions)
+            .then((qrcodeCanvas) => {
+                ticketStage.find('#' + "qrcodeImage")[0].image(qrcodeCanvas);
+                document.getElementById("download-ticket-btn").disabled = false;
+
+            });
+
+
+            // assign "Roboto" font to each "Text" component
+            ticketStage.find('Text').forEach((v, idx) => {
+                if (!v.attrs.icon) {
+                    v.fontFamily('Montserrat');
+                }
+            });
+            ticketStage.draw();
+
+
+
+            // attach on-click event to "download ticket" button
+            document.getElementById("download-ticket-btn").onclick = function() {
+
+                // change the ticket's png image's DPI to 300
+                downloadURI(changeDpiDataUrl(ticketStage.toDataURL({
+                    quality: 1,
+                    pixelRatio,
+                }), 300), 'ticket.png');
+
+            };
+
+        }, 500);
+
+
+    })();
+    </script>
+
+<div class="betternet-wrapper"></div></body></html>
